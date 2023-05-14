@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.mainB {
+    height: 85vh;
+    padding: 20px 5%;
+
+    &_banner {
+        padding-left: 10%;
+        width: 100%;
+        display: flex;
+        border-radius: 15px;
+        height: 100%;
+        background: url("./img/bg.svg") center/cover no-repeat fixed;
+
+        &_left {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items: flex-start;
+            flex-direction: column;
+
+            &_title {
+                font-size: 20px;
+                font-weight: 400;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            &_content {
+                padding: 10px 0;
+                font-size: 110px;
+                font-weight: 500;
+                font-family: "Aclonica", sans-serif !important;
+
+                span {
+                    font-family: "Aclonica", sans-serif;
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        height: 17%;
+                        width: 60%;
+                        border-radius: 10px;
+                        top: 3%;
+                        left: 20%;
+                        background-color: red;
+                    }
+                }
+            }
+
+            &_description {
+                font-size: 20px;
+                font-weight: 400;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            &_button {
+                margin-top: 10%;
+                padding: 15px 45px;
+                background-image: linear-gradient(to bottom, #ff5151 50%, #ff5e3a);
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font-size: 16px;
+            }
+        }
+
+        &_right {
+            width: 50%;
+        }
+    }
+}
