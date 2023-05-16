@@ -9,5 +9,5 @@ sql = "DELETE FROM product WHERE id ="& id
 conn.Execute sql
 conn.Close
 Set conn = Nothing
- Response.Redirect("../adminDel.asp")  
+ Response.Redirect("../../delete.asp")  
 %>

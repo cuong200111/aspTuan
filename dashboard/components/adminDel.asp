@@ -33,7 +33,7 @@ button{
 </style>
 <body>
 
-  <form action="./controller/apidelete.asp" method="post">
+  <form action="./components/controller/apidelete.asp" method="post">
     <Table style="width:100%">
         <thead>
             <tr>

@@ -18,5 +18,5 @@ sql = "INSERT INTO product (id,title,price,img,category) VALUES ('" & id & "','"
 conn.Execute sql
 conn.Close
 Set conn = Nothing
-       Response.Redirect("../admin.asp")
+       Response.Redirect("../../create.asp")
 %>

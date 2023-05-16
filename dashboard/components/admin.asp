@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="./controller/addproject.asp" method="post">
+    <form action="./components/controller/addproject.asp" method="post">
         <div>
          
             <input type="hidden"  name="id" id="id" type="text" required/>
