@@ -1,31 +1,19 @@
-<!-- #include file="./controller/queryproject.asp" -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/logoss.jpg" type="image/png" />
-<link rel="stylesheet" href="header.css">
-    <title>KaTieu Shop</title>
-</head>
 
-<body>
 
     <div class="main">
 
         <div class="main_header">
             <div class="main_header_logo">
-                <img src="img/logo.png" />
+                <img src="pages/components/img/logo.png" />
 
             </div>
             <div class="main_header_content">
                 <ul>
-                    <li><a href="/test/index.asp">Trang chủ</a></li>
-                    <li><a href="">Cửa hàng</a></li>
-                    <li><a href="">Danh mục</a></li>
-                    <li><a href="">Liên hệ</a></li>
-                    <li><a href="">Tra cứu</a></li>
+                    <li><a class="main_header_content_href" href="/test/index.asp">Trang chủ</a></li>
+                    <li><a class="main_header_content_href" href="/test/store.asp">Cửa hàng</a></li>
+                    <li><a class="main_header_content_href" href="">Danh mục</a></li>
+                    <li><a class="main_header_content_href" href="">Liên hệ</a></li>
+                    <li><a class="main_header_content_href" href="">Tra cứu</a></li>
                 </ul>
 
             </div>
@@ -39,14 +27,26 @@
 
     </div>
     <script>
-        const srtArrProduct = "<%=arr%>"
-        const tex = document.createElement('tex')
-        tex.innerHTML = srtArrProduct
-        const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
-        const dataJson = JSON.parse(text.replaceAll('_', '"').slice(0, text.lastIndexOf(',')) + "]")
-        console.log(dataJson)
+   const header =document.querySelector('.main_header')
+   const main_header =document.querySelector('main')
+const main_header_content = document.querySelectorAll('.main_header_content_href')
+const button =document.querySelector('button')
+   document.addEventListener('scroll',()=>{
+    if(window.innerWidth>600){
+        if(scrollY>46){
+            header.classList.add('active')
+            main_header_content.forEach(item=>item.classList.add('active'))
+            header.style ='animation:scrollHeader 0.4s forwards;'
+            button.classList.add('active')
+            main_header.classList.add('active')
+        }else{
+            header.classList.remove('active')
+            header.style ='animation:scrollHeader2 0.5s forwards;'
+            main_header_content.forEach(item=>item.classList.remove('active'))
+            button.classList.remove('active')
+            main_header.classList.remove('active')
+        }
+    }
+
+   })
     </script>
-
-</body>
-
-</html>

@@ -21,7 +21,7 @@
                 <img src="img/logo.png" />
 
             </div>
-            <div class="main_header_content">
+            <div class="mainAlbum_container_lists_list_tcontent">
                 <ul>
                     <li><a href=""></a></li>
                     <li><a href=""></a></li>
@@ -41,13 +41,21 @@
 
     </div>
     <script>
-        const srtArrProduct = "<%=arr%>"
-        const tex = document.createElement('tex')
-        tex.innerHTML = srtArrProduct
-        const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
-        const dataJson = JSON.parse(text.replaceAll('_', '"').slice(0, text.lastIndexOf(',')) + "]")
-        console.log(dataJson)
-    </script>
+        let htmlAlbum =``
+            const srtArrProduct = "<%=arr%>"
+     
+            const tex = document.createElement('tex')
+            tex.innerHTML = srtArrProduct
+            const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
+            const dataJson = JSON.parse(text.replaceAll('_', '"').slice(0, text.lastIndexOf(',')) + "]")
+           dataJson.forEach((item,index)=>{
+           htmlAlbum += `<div class="mainAlbum_container_lists_list">
+        <div class="mainAlbum_container_lists_list_title>${item.title}</div>
+        <img src="data:image/png;base64,${item.url}"/>
+        </div>`
+           })
+           document.querySelector('.mainAlbum_container_lists').innerHTML = htmlAlbum 
+        </script>
 
 </body>
 

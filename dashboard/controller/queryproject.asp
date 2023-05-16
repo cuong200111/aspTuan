@@ -15,7 +15,7 @@ Else
         
       Response.Write "["
         Do While Not rs.EOF
-Response.Write "{_id_:_"& rs("id")&"_,_category_:_"& rs("category") &"_,_url_:_"& rs("img") &"_,_title_:_"& rs("title") &"_},"
+Response.Write "{_id_:_"& rs("id")&"_,_category_:_"& rs("category") &"_,_url_:_"& rs("img") &"_,_title_:_"& rs("title") &"_,_price_:_"& rs("price") &"_,_createdAt_:_"& rs("createdAt") &"_},"
             rs.MoveNext
         Loop
         Response.Write "]"

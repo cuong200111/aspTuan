@@ -1,17 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .mainB {
   height: 85vh;
   padding: 20px 5%;
@@ -70,6 +58,7 @@ body {
   border-radius: 10px;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 }
 .mainB_banner_right {
   width: 50%;

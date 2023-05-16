@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+.contact {
+  margin-top: 100px;
+  width: 100%;
+  background-color: rgba(252, 203, 144, 0.1803921569);
+}
+.contact_main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.contact_main_title {
+  position: relative;
+  margin-top: 30px;
+}
+.contact_main_title h1 {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+.contact_main_title::before {
+  position: absolute;
+  content: "";
+  bottom: 8%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #ff5e3a;
+  width: 100%;
+}
+.contact_main_title::after {
+  position: absolute;
+  content: "";
+  bottom: 1.1%;
+  height: 10px;
+  border-radius: 5px;
+  right: 30%;
+  background-color: #ff5e3a;
+  width: 15%;
+}
+.contact_main_description h1 {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.contact_main_content {
+  width: 70%;
+  height: 30vh;
+  display: flex;
+  margin: 0 10%;
+  justify-content: space-between;
+}
+.contact_main_content_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact_main_content_main img {
+  font-size: 40px;
+}
+.contact_main_content_main h1 {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}/*# sourceMappingURL=contact.css.map */

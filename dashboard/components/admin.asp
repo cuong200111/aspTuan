@@ -1,7 +1,12 @@
-<!-- #include file="./controller/queryproject.asp" -->
+
 <html>
 <head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logoss.jpg" type="image/png" />
 
+    <title>KaTieu Shop</title>
 </head>
 
 <body>
@@ -19,7 +24,7 @@
             <input name="price" id="price" type="text" required/>
         </div>
 
-       <!-- #include file="./components/optionCategory.asp" -->
+       <!-- #include file="./optionCategory.asp" -->
         <div> <label for="imgFile">Image file:</label>
             <input name="imgFile" onchange="changeImg(this)" id="imgFile" type="file" />
         </div>
@@ -39,6 +44,7 @@ document.querySelector('#id').value = dataJson.length+1
             const reader = new FileReader();
             reader.onload = (e) => {
                 const base64 = window.btoa(e.target.result)
+                console.log(base64);
                 document.getElementById('imgBase64').value = base64
             }
             reader.readAsBinaryString(document.getElementById('imgFile').files[0])
