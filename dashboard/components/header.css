@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+li {
+  list-style-type: none;
+}
+
+.header {
+  height: 100%;
+  padding: 10% 0;
+}
+.header_main {
+  height: 100%;
+}
+.header_main_content {
+  border-top: 1px solid rgba(0, 0, 0, 0.177);
+  margin-top: 20%;
+  padding-top: 5%;
+}
+.header_main_content ul {
+  padding-left: 0px;
+}
+.header_main_content ul li a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  padding: 5% 0;
+  font-weight: 400;
+  display: block;
+}
+.header_main_content ul li a.active {
+  background-color: rgba(114, 114, 202, 0.307);
+  color: blue;
+}/*# sourceMappingURL=header.css.map */
