@@ -6,18 +6,23 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="pages/components/banner.css ">
-        <link rel="stylesheet" href="pages/components/albums.css ">
-            <link rel="stylesheet" href="pages/components/header.css ">
   <title>KaTieu Shop</title>
+  <link rel="stylesheet" href="pages/components/banner.css ">
+  <link rel="stylesheet" href="pages/components/album.css ">
+  <link rel="stylesheet" href="pages/components/headernew.css ">
+  <link rel="stylesheet" href="pages/components/newproduct.css ">
+  <link rel="stylesheet" href="pages/components/store/index.css">
+  <link rel="stylesheet" href="pages/components/contact.css ">
+  <link rel="stylesheet" href="pages/components/footer.css ">
+  <link rel="stylesheet" href="./index.css ">
 </head>
 <script>
-const srtArrProduct = "<%=arr%>"  
+  const srtArrProduct = "<%=arr%>"  
 </script>
+
 <body>
 
-<!-- #include file="./pages/store.asp" -->
+  <!-- #include file="./pages/store.asp" -->
 
 </body>
 

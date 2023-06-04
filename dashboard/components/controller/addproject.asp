@@ -13,7 +13,7 @@ Dim category
 category = Request.Form("selectCategory")
 
 Set conn = Server.CreateObject("ADODB.Connection")
-conn.Open "Provider=SQLOLEDB;Data Source=CUONG;Initial Catalog=master;User Id=sa;Password=123;"
+conn.Open "Provider=SQLOLEDB;Data Source=CUONG;Initial Catalog=test;User Id=sa;Password=123;"
 sql = "INSERT INTO product (id,title,price,img,category) VALUES ('" & id & "','" & title & "','" & price & "','" & img & "','" & category & "')"
 conn.Execute sql
 conn.Close
