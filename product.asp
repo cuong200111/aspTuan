@@ -9,7 +9,7 @@
   <title>KaTieu Shop</title>
   <link rel="stylesheet" href="pages/components/banner.css ">
   <link rel="stylesheet" href="pages/components/album.css ">
-  <link rel="stylesheet" href="pages/components/headernew.css ">
+  <link rel="stylesheet" href="pages/components/header.css ">
   <link rel="stylesheet" href="pages/components/newproduct.css ">
   <link rel="stylesheet" href="pages/components/store/index.css">
   <link rel="stylesheet" href="pages/components/contact.css ">

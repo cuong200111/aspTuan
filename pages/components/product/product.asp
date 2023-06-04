@@ -9,6 +9,7 @@
         </div>
     </div>
 </div>
+
 <script>
     const productpage_data_main_item = document.querySelector('.productpage_data_main_item')
     const productpage_title = document.querySelector('.productpage_title');
@@ -20,7 +21,19 @@
     productpage_title.innerHTML = `<h5>Danh mục > ${formatNameCategory}</h5>`
     let html = ``
     filterData.forEach((item, index) => {
-        html += `<div class='productpage_data_main_item_s'><img src='data:image/png;base64,${item.url}'/></div>`
+        html += `<div class='productpage_data_main_item_s'>
+    <img src='data:image/png;base64,${item.url}' />
+    <div class='productpage_data_main_item_s_description'>
+        áo nam
+    </div>
+    <div class='productpage_data_main_item_s_price'>
+        200 $
+    </div>
+    <button class='productpage_data_main_item_s_button'>
+       Mua ngay
+    </button>
+</div>`
     })
     productpage_data_main_item.innerHTML = html
+    const productpage_data_main_item_s = document.querySelector('.productpage_data_main_item_s')
 </script>

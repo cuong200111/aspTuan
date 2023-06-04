@@ -73,7 +73,6 @@
                 border-radius: 5px;
                 cursor: pointer;
                 transition: 0.3s;
-
                 &.active {
                     background-color: white;
                 }
@@ -115,9 +114,11 @@
       opacity: 0;
       visibility: hidden;
       transition: 0.4s;
+      z-index: 1000;
     }
     &:hover > ul{
         opacity:1;
         visibility: visible;
+        z-index: 1000;
     }
 }
