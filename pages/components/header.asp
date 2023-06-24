@@ -36,8 +36,7 @@
 
         </div>
         <div class="main_header_login">
-            <button>Đăng ký</button>
-            <button>Đăng nhập</button>
+
         </div>
     </div>
 
@@ -45,6 +44,23 @@
 
 </div>
 <script>
+    const main_header_login = document.querySelector('.main_header_login')
+    const online = Boolean(localStorage.getItem("online"))
+
+    if (online) {
+        main_header_login.innerHTML = ` <button onclick="signout()">Đăng xuất</button>`
+    } else {
+        main_header_login.innerHTML = `<button><a style="text-decoration: none;color:black" href="../../signup.asp">Đăng ký</a></button>
+            <button><a style="text-decoration: none;color:black" href="../../signin.asp">Đăng nhập</a></button>`
+
+    }
+    const signout = () => {
+        if (online) {
+            localStorage.setItem('online', '');
+            window.location.reload();
+            localStorage.setItem('user', '')
+        }
+    }
     // const nav2 = document.querySelector('.nav2')
     // const main_header_content_href_li = document.querySelector(".main_header_content_href.mouse")
     // main_header_content_href_li.addEventListener('mouseenter',()=>{
@@ -69,7 +85,7 @@
                 header.classList.remove('active')
                 header.style = 'animation:scrollHeader2 0.5s forwards;'
                 main_header_content.forEach(item => item.classList.remove('active'))
-              button.forEach(item => item.classList.remove('active'))
+                button.forEach(item => item.classList.remove('active'))
                 main_header.classList.remove('active')
             }
         }

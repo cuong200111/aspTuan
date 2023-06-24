@@ -33,15 +33,17 @@ sans-serif;
                 grid-template-columns: auto auto auto auto;
                 width: 80%;
                 gap: 50px;
+
                 &_s {
                     position: relative;
-                    width: 90%;
+                    width: 300px;
                     height: 380px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
                     overflow: hidden;
+
                     img {
                         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.13);
                         width: 100%;
@@ -74,7 +76,8 @@ sans-serif;
                         cursor: pointer;
                         transition: 0.2s;
                     }
-                    &:hover>&_button{
+
+                    &:hover>&_button {
                         bottom: 0;
                     }
                 }

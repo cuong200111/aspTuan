@@ -1,0 +1,32 @@
+.containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.item {
+    background-color: #ccc;
+    padding: 20px;
+
+
+}
+
+.item img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+}
