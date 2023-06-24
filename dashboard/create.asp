@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./delete.css">
 
     <link rel="stylesheet" href="./components/admindel.css">
-    <link rel="stylesheet" href="./components/header.css">
+    <link rel="stylesheet" href="./components/headers.css">
 </head>
 <body>
     <div style="width: 100%;height:100vh; display: flex;">

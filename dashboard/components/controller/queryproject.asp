@@ -15,7 +15,13 @@ Else
         
       Response.Write "["
         Do While Not rs.EOF
-Response.Write "{_id_:_"& rs("id")&"_,_category_:_"& rs("category") &"_,_url_:_"& rs("img") &"_,_title_:_"& rs("title") &"_,_price_:_"& rs("price") &"_,_createdAt_:_"& rs("createdAt") &"_},"
+          Dim imgUrl
+          If Len(rs("img")) = 0 Then
+                 imgUrl = "#"
+          Else
+        imgUrl = rs("img")
+          End If
+Response.Write "{_id_:_"& rs("id")&"_,_datas_:"& rs("datas") &",_category_:_"& rs("category") &"_,_url_:_"& imgUrl &"_,_title_:_"& rs("title") &"_,_price_:_"& rs("price") &"_,_createdAt_:_"& rs("createdAt") &"_},"
             rs.MoveNext
         Loop
         Response.Write "]"

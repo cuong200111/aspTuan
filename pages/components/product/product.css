@@ -28,7 +28,7 @@
 }
 .productpage_data_main_item_s {
   position: relative;
-  width: 90%;
+  width: 300px;
   height: 380px;
   display: flex;
   flex-direction: column;

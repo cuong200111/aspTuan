@@ -21,7 +21,7 @@
     productpage_title.innerHTML = `<h5>Danh mục > ${formatNameCategory}</h5>`
     let html = ``
     filterData.forEach((item, index) => {
-        html += `<div class='productpage_data_main_item_s'>
+        html += `<div class='productpage_data_main_item_s style=''>
     <img src='data:image/png;base64,${item.url}' />
     <div class='productpage_data_main_item_s_description'>
         áo nam
