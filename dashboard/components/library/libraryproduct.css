@@ -1,0 +1,61 @@
+.dialog{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s all;
+    background-color: white;
+    border-left: 1px solid rgba(0, 0, 0, 0);
+}
+.dialog.active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.247);
+}
+.header-dialog{
+    height:5%;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+.container-dialog{
+    height: 90%;
+    width: 100%;
+}
+.header-dialog-close{
+    border: 1px solid;
+    position: relative;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30px;
+    transition: 0.4s;
+}
+.header-dialog-close:hover{
+  background-color: rgba(0, 0, 0, 0.021);
+}
+.header-dialog-close div:nth-child(1){
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0%;
+    height: 1px;
+    transform: rotate(44deg);
+    background-color: black;
+}
+.header-dialog-close div:nth-child(2){
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0%;
+    height: 1px;
+    transform: rotate(-44deg);
+    background-color: black;
+}
