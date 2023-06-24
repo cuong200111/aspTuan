@@ -4,7 +4,7 @@ Dim conn
 Set conn = Server.CreateObject("ADODB.Connection")
 Set rs =Server.CreateObject("ADODB.Recordset") 
 On Error Resume Next
-conn.Open "Provider=SQLOLEDB;Data Source=CUONG;Initial Catalog=test;User Id=sa;Password=123;"
+conn.Open "Provider=SQLOLEDB;Data Source=LAPTOP-UHRJ0SA1;Initial Catalog=fashion;User Id=sa;Password=123;"
 
 If Err.Number <> 0 Then
       Response.Write "failure"

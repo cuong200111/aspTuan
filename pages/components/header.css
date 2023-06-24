@@ -85,8 +85,10 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.4s;
+  z-index: 1000;
 }
 .mouse:hover > ul {
   opacity: 1;
   visibility: visible;
-}/*# sourceMappingURL=headernew.css.map */
+  z-index: 1000;
+}/*# sourceMappingURL=header.css.map */

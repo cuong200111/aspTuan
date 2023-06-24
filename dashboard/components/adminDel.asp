@@ -57,7 +57,7 @@ button{
 
 </body>
 <script>
-const srtArrProduct = "<%=arr%>"
+const srtArrProduct = `<%=arr%>`
 const tex=  document.createElement('tex')
 tex.innerHTML = srtArrProduct
 const text = tex.innerHTML === 'failure'?"[]":tex.innerHTML
@@ -71,7 +71,7 @@ dataJson.forEach(item=>{
                    ${item.id}
                 </td>
                 <td>
-                    ${item.category}  
+                    ${item.title}  
                 </td>
                 <td>
       <button name="id" id="id" value="${item.id}"> Xóa</button>
