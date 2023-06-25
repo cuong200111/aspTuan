@@ -29,11 +29,15 @@
     <div class='productpage_data_main_item_s_price'>
         200 $
     </div>
-    <button class='productpage_data_main_item_s_button'>
+    <button onclick="addCart(${item.id})" class='productpage_data_main_item_s_button'>
        Mua ngay
     </button>
 </div>`
     })
     productpage_data_main_item.innerHTML = html
     const productpage_data_main_item_s = document.querySelector('.productpage_data_main_item_s')
+    const addCart = (id)=>{
+        window.location.href = `detailproduct.asp?id=${id}`
+    }
+
 </script>

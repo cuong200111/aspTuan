@@ -22,6 +22,9 @@
         <div> <label for="id">price:</label>
             <input name="price" id="price" type="text" required />
         </div>
+        <div>
+            <input type="number" id="sale" name="sale" min="0" max="100">
+        </div>
 
         <!-- #include file="./optionCategory.asp" -->
         <div> <label for="imgFile">Image file:</label>
@@ -29,40 +32,40 @@
         </div>
         <input name="size[]" value="S" disabled> <br>
         <div style="display: flex; user-select: none;">
-            <input type="checkbox" name="color[]" class="S" value="Yellow">Vàng<br>
-            <input type="checkbox" name="color[]" class="S" value="Black">Đen <br>
-            <input type="checkbox" name="color[]" class="S" value="White">Trắng <br>
-            <input type="checkbox" name="color[]" class="S" value="Red">Đỏ <br>
-            <input type="checkbox" name="color[]" class="S" value="Pink">Hồng <br>
+            <input type="text" name="color[]" class="S" aria-level="Yellow" value="" placeholder="Yellow">
+            <input type="text" name="color[]" class="S" aria-level="Black" value="" placeholder="Black">
+            <input type="text" name="color[]" class="S" aria-level="White" value="" placeholder="White">
+            <input type="text" name="color[]" class="S" aria-level="Red" value="" placeholder="Red">
+            <input type="text" name="color[]" class="S" aria-level="Pink" value="" placeholder="Pink">
         </div>
-        <input type="text" name="text[]" class="S"> <br>
-        <div style="display: flex; user-select: none;">
-            <input type="checkbox" name="color[]" class="M" value="Yellow">Vàng<br>
-            <input type="checkbox" name="color[]" class="M" value="Black">Đen <br>
-            <input type="checkbox" name="color[]" class="M" value="White">Trắng <br>
-            <input type="checkbox" name="color[]" class="M" value="Red">Đỏ <br>
-            <input type="checkbox" name="color[]" class="M" value="Pink">Hồng <br>
-        </div>
+
         <input name="size[]" value="M" disabled> <br>
-        <input type="text" name="text[]" class="M"> <br>
+
         <div style="display: flex; user-select: none;">
-            <input type="checkbox" name="color[]" class="L" value="Yellow">Vàng<br>
-            <input type="checkbox" name="color[]" class="L" value="Black">Đen <br>
-            <input type="checkbox" name="color[]" class="L" value="White">Trắng <br>
-            <input type="checkbox" name="color[]" class="L" value="Red">Đỏ <br>
-            <input type="checkbox" name="color[]" class="L" value="Pink">Hồng <br>
+            <input type="text" name="color[]" class="M" aria-level="Yellow" value="" placeholder="Yellow">
+            <input type="text" name="color[]" class="M" aria-level="Black" value="" placeholder="Black">
+            <input type="text" name="color[]" class="M" aria-level="White" value="" placeholder="White">
+            <input type="text" name="color[]" class="M" aria-level="Red" value="" placeholder="Red">
+            <input type="text" name="color[]" class="M" aria-level="Pink" value="" placeholder="Pink">
         </div>
+
         <input name="size[]" value="L" disabled> <br>
-        <input type="text" name="text[]" class="L"> <br>
         <div style="display: flex; user-select: none;">
-            <input type="checkbox" name="color[]" class="XL" value="Yellow">Vàng<br>
-            <input type="checkbox" name="color[]" class="XL" value="Black">Đen <br>
-            <input type="checkbox" name="color[]" class="XL" value="White">Trắng <br>
-            <input type="checkbox" name="color[]" class="XL" value="Red">Đỏ <br>
-            <input type="checkbox" name="color[]" class="XL" value="Pink">Hồng <br>
+            <input type="text" name="color[]" class="L" aria-level="Yellow" value="" placeholder="Yellow">
+            <input type="text" name="color[]" class="L" aria-level="Black" value="" placeholder="Black">
+            <input type="text" name="color[]" class="L" aria-level="White" value="" placeholder="White">
+            <input type="text" name="color[]" class="L" aria-level="Red" value="" placeholder="Red">
+            <input type="text" name="color[]" class="L" aria-level="Pink" value="" placeholder="Pink">
         </div>
+
         <input name="size[]" value="XL" disabled> <br>
-        <input type="text" name="text[]" class="XL"> <br>
+        <div style="display: flex; user-select: none;">
+            <input type="text" name="color[]" class="XL" aria-level="Yellow" value="" placeholder="Yellow">
+            <input type="text" name="color[]" class="XL" aria-level="Black" value="" placeholder="Black">
+            <input type="text" name="color[]" class="XL" aria-level="White" value="" placeholder="White">
+            <input type="text" name="color[]" class="XL" aria-level="Red" value="" placeholder="Red">
+            <input type="text" name="color[]" class="XL" aria-level="Pink" value="" placeholder="Pink">
+        </div>
         <div> <input type="hidden" name="imgBase64" id="imgBase64">
             <button type="submit" onclick="handleSubmit(event)">Submit</button>
         </div>
@@ -79,8 +82,6 @@
         tex.innerHTML = srtArrProduct
         const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
         const dataJson = JSON.parse(text.replaceAll('_', '"').slice(0, text.lastIndexOf(',')) + "]")
-
-        console.log(dataJson);
         document.querySelector('#id').value = dataJson.length + 1
         const changeImg = (e) => {
             const reader = new FileReader();
@@ -91,61 +92,29 @@
             reader.readAsBinaryString(document.getElementById('imgFile').files[0])
         }
 
-        const colorInput = document.getElementsByName('color[]')
-        colorInput.forEach((item, index) => {
-            item.addEventListener('change', (e) => {
-                const className = e.target.classList[0]
-                const value = e.target.value
-                const indexz = className === 'S' ? checkArr.indexOf(value) : className === 'M' ? checkArr1.indexOf(value) : className === 'L' ? checkArr2.indexOf(value) : className === 'XL' ? checkArr3.indexOf(value) : null
 
 
-                if (className === 'S') {
-                    if (indexz < 0) {
-                        checkArr.push(value)
-                    } else {
-                        checkArr.splice(indexz, 1)
-                    }
-                }
-                if (className === 'M') {
-                    if (indexz < 0) {
-                        checkArr1.push(value)
-                    } else {
-                        checkArr1.splice(indexz, 1)
-                    }
-                }
-                if (className === 'L') {
-                    if (indexz < 0) {
-                        checkArr2.push(value)
-                    } else {
-                        checkArr2.splice(indexz, 1)
-                    }
-                }
-                if (className === 'XL') {
-                    if (indexz < 0) {
-                        checkArr3.push(value)
-                    } else {
-                        checkArr3.splice(indexz, 1)
-                    }
-                }
-
-            })
-        })
-
-        const inputSize = document.getElementsByName('text[]')
+        const inputSize = document.getElementsByName('color[]')
         inputSize.forEach((item, index) => {
             item.addEventListener('input', (itemz) => {
+                const aria = itemz.target.ariaLevel;
                 const className = itemz.target.classList[0]
-                const itemIndex = dataArr.findIndex(item => item.size === className)
-                if (itemIndex === -1) {
+                console.log(dataArr);
+                const foundItem = dataArr.find((item) => {
+                    return item.size === className && item.color.cl === aria;
+                });
 
+                if (foundItem) {
+                    foundItem.color.qt = itemz.target.value;
+                } else {
                     const newItem = {
                         size: className,
-                        quantity: itemz.target.value,
-                        color: className === 'S' ? checkArr : className === 'M' ? checkArr1 : className === 'L' ? checkArr2 : className === 'XL' ? checkArr3 : null
+                        color: {
+                            cl: aria,
+                            qt: itemz.target.value
+                        }
                     }
-                    dataArr.push(newItem)
-                } else {
-                    dataArr[itemIndex].quantity = itemz.target.value
+                    dataArr.push(newItem);
                 }
 
                 dataArr.sort((a, b) => {
@@ -173,13 +142,15 @@
         const price = document.querySelector('#price')
         const imgs = document.querySelector('#imgBase64')
         const category = document.querySelector('#category')
-
+        const sale = document.querySelector('#sale')
         function handleSubmit(e) {
             e.preventDefault();
+            console.log(dataArr)
             const formData = new URLSearchParams();
             formData.append("id", document.querySelector('#id').value);
             formData.append("title", title.value);
             formData.append("price", price.value);
+            formData.append("sale", sale.value === `` ? 0 : sale.value);
             formData.append("imgBase64", imgs.value);
             formData.append("selectCategory", category.value);
             formData.append("datas", JSON.stringify(dataArr));
@@ -189,8 +160,10 @@
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
                 body: formData
-            }).then(item => item.text()).then(item => {
-                console.log(item)
+            }).then(item => {
+                if (item.status === 200) {
+                    // window.location.reload()
+                }
             })
         }
 
