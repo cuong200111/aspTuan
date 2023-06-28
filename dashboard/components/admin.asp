@@ -99,7 +99,6 @@
             item.addEventListener('input', (itemz) => {
                 const aria = itemz.target.ariaLevel;
                 const className = itemz.target.classList[0]
-                console.log(dataArr);
                 const foundItem = dataArr.find((item) => {
                     return item.size === className && item.color.cl === aria;
                 });
@@ -145,7 +144,6 @@
         const sale = document.querySelector('#sale')
         function handleSubmit(e) {
             e.preventDefault();
-            console.log(dataArr)
             const formData = new URLSearchParams();
             formData.append("id", document.querySelector('#id').value);
             formData.append("title", title.value);

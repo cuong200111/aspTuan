@@ -19,7 +19,6 @@
 <script>
     const a = document.querySelectorAll('.header_main_content ul li a')
     const pathName = location.pathname.slice(location.pathname.lastIndexOf('/')+1)
-    console.log(pathName);
     const namePath = pathName ==='delete.asp'?'delete.asp':pathName ==='create.asp'?'create.asp':pathName ==='libraryproduct.asp'?'libraryproduct.asp':''
     a.forEach(item=>{
         if(namePath === item.ariaValueText){

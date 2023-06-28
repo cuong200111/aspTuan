@@ -1,41 +1,125 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
-li {
+.main {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  transition: 0.4s;
+}
+.main_active {
+  height: 65px;
+}
+.main_header {
+  height: 56px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0% 5%;
+}
+.main_header.active {
+  position: fixed;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  z-index: 100;
+}
+.main_header_logo img {
+  width: 20px;
+  height: 20px;
+}
+.main_header_content ul {
+  display: flex;
+}
+.main_header_content ul li {
   list-style-type: none;
 }
-
-.header {
-  height: 100%;
-  padding: 10% 0;
-}
-.header_main {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.header_main_content {
-  flex: 1;
-  border-top: 1px solid rgba(0, 0, 0, 0.177);
-  margin-top: 20%;
-  padding-top: 5%;
-}
-.header_main_content ul {
-  padding-left: 0px;
-  margin: 0;
-}
-.header_main_content ul li a {
+.main_header_content_href {
+  display: block;
+  padding: 22px 20px;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   color: black;
-  padding: 5% 0;
-  font-weight: 400;
-  display: block;
+  font-weight: 500;
+  font-size: 17px;
 }
-.header_main_content ul li a.active {
-  background-color: rgba(114, 114, 202, 0.307);
-  color: blue;
+.main_header_content_href.active {
+  color: rgb(249, 249, 249) !important;
 }
+.main_header_login {
+  display: flex;
+  justify-content: space-between;
+  width: 13%;
+  align-items: center;
+}
+.main_header_login_cart {
+  cursor: pointer;
+  position: relative;
+}
+.main_header_login_cart_noti div {
+  position: absolute;
+  top: -37%;
+  right: -36%;
+  background-color: rgb(117, 32, 32);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_header_login_cart_noti div span {
+  font-size: 11px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main_header_login button {
+  padding: 7px 15px;
+  border: none;
+  background-color: rgba(232, 92, 92, 0.422);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main_header_login button.active {
+  background-color: white;
+}
+
+@keyframes scrollHeader {
+  0% {
+    transform: translateY(-5px);
+    height: 56px;
+  }
+  100% {
+    transform: translateY(0px);
+    height: 65px;
+  }
+}
+@keyframes scrollHeader2 {
+  0% {
+    position: fixed;
+    top: 3px;
+    background-color: rgb(0, 0, 0);
+  }
+  50% {
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.mouse ul {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 1000;
+}
+.mouse:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
@@ -43,11 +127,28 @@ body {
 }
 
 .cart_popup {
+  background-color: white;
   position: fixed;
   overflow: auto;
   right: 0;
+  top: 0;
+  z-index: 100;
   width: 30%;
   height: 100%;
+  right: -30%;
+  transition: 0.5s;
+}
+.cart_popup_close {
+  position: absolute;
+  left: 93%;
+  top: 1%;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.cart_popup.active {
+  right: 0%;
 }
 .cart_popup_header {
   margin-top: 20px;
@@ -115,10 +216,12 @@ body {
 .cart_popup_container_item_right {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .cart_popup_container_item_right_close {
-  position: absolute;
-  left: 89%;
+  align-self: flex-end;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -134,11 +237,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 12px 0 12px 0;
+}
+.cart_popup_container_item_right_top {
+  display: block;
+  margin: 0px 0 12px 0;
 }
 .cart_popup_container_item_right_bottom {
   display: flex;
+  margin: 12px 0 12px 0;
   justify-content: space-between;
-  padding: 20px;
+  width: 100%;
   align-items: center;
 }
 .cart_popup_container_item_right_bottom_quantity {
@@ -180,4 +289,13 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.bgPopup {
+  visibility: hidden;
+  transition: 0.5s;
+  opacity: 0;
+}
+.bgPopup.active {
+  visibility: visible;
+  opacity: 1;
 }/*# sourceMappingURL=headers.css.map */

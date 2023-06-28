@@ -121,7 +121,6 @@
             reader.onload = () => {
                 fileArr.push(reader.result)
                 if (fileArr.length === files.length) {
-                    console.log(fileArr)
                 }
             }
             reader.readAsDataURL(files[i])

@@ -26,7 +26,6 @@ const getProducts = async () => {
     const products = data.products;
     return products;
   } catch (err) {
-    console.log(err);
   }
 };
 

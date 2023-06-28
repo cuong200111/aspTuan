@@ -1,7 +1,7 @@
 
-<!-- #include file="./components/header.asp" -->
-<!-- #include file="./components/banner.asp" -->
-<!-- #include file="./components/album.asp" -->
-<!-- #include file="./components/newproduct.asp" -->
-<!-- #include file="./components/contact.asp" -->
-<!-- #include file="./components/footer.asp" -->
+<!-- #include file="./components/header/header.asp" -->
+<!-- #include file="./components/banner/banner.asp" -->
+<!-- #include file="./components/album/album.asp" -->
+<!-- #include file="./components/newproduct/newproduct.asp" -->
+<!-- #include file="./components/contact/contact.asp" -->
+<!-- #include file="./components/footer/footer.asp" -->

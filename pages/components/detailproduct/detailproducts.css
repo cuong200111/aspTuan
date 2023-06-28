@@ -9,6 +9,7 @@ op {
 }
 
 .containers {
+  margin-top: 40px;
   width: 100%;
 }
 .containers_container {
@@ -243,4 +244,4 @@ op {
 .containers_container_information_addCart_button button:hover {
   background-color: #FEECC7;
   color: #fcaf17;
-}/*# sourceMappingURL=detailproduct.css.map */
+}/*# sourceMappingURL=detailproducts.css.map */

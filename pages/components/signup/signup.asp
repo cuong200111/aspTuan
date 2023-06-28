@@ -129,7 +129,6 @@
 
             }
         }
-        console.log(dataJson)
     </script>
 
 </body>

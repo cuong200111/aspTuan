@@ -20,7 +20,6 @@
             const handleSignIn = (e) => {
                 e.preventDefault();
                 const arr = dataJson
-                console.log(arr)
                 const findItem = arr.find(item => {
                     if (item.mail === username.value || item.nameacc === username.value) {
                         if (item.pass === password.value) {
@@ -32,6 +31,10 @@
                 if (username.value !== "admin") {
                     if (findItem) {
                         localStorage.setItem('user', findItem.nameacc)
+                        localStorage.setItem('fullName', findItem.names)
+                        localStorage.setItem('emailUser', findItem.mail)
+                        localStorage.setItem('address', findItem.addres)
+                        localStorage.setItem('phoneUser', findItem.phone)
                         localStorage.setItem('online', true)
                         window.location.href = './'
                     }

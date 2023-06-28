@@ -23,10 +23,17 @@ imgs varchar(max),
 colors varchar(max)
 )
 create table cartUser (
+idproduct varchar(max),
 account varchar(max),
+fullname varchar(max),
+addres varchar(max),
+phones varchar(max),
 imgproduct varchar(max),
-colors varchar(max),
-size varchar(max)
+colorEn varchar(max),
+colorVi varchar(max),
+size varchar(max),
+quatity int,
+methodshipper varchar(max),
 )
 select * from libraryproduct
 delete from libraryproduct

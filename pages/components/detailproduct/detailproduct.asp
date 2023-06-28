@@ -94,6 +94,7 @@
                 return item
             }
         })
+
         const arrSizes = formatDataProduct.datas ? formatDataProduct.datas : []
         const fillterDuplicateArrSizes = arrSizes.filter((item, index) => {
             return arrSizes.findIndex(itemz => item.size === itemz.size) === index
@@ -167,6 +168,8 @@
         const activeColor = document.querySelectorAll('.containers_container_information_color_container_item')
         const itemProduct = document.querySelector('.containers_container_products')
         let htmlProducts = ``
+        let color = null
+        let size = null
         const handleActive = (e) => {
             const labelDiv = e.currentTarget.ariaLabel
             const arrImgproduct = filterlibrary.filter((item) => item.colors === labelDiv)
@@ -183,10 +186,12 @@
             contentColor.innerHTML = formatColor(labelDiv)
             itemProduct.innerHTML = htmlProducts
             e.currentTarget.classList.add('active')
+            color = { colorEn: labelDiv, colorVi: formatColor(labelDiv) }
         }
         const activeSize = document.querySelectorAll('.containers_container_information_size_content_item')
         const handleActiveSize = (e) => {
             const ariaLabel = e.currentTarget.ariaLabel
+            const textContent = e.target.textContent.trim()
             if (ariaLabel === 'hiddenSize') {
 
             } else {
@@ -194,6 +199,23 @@
                     item.classList.remove('active')
                 })
                 e.currentTarget.classList.add('active')
+                const findQuatity = filterlibrary.find(item => {
+                    if (item.colors === color.colorEn) {
+                        return item
+                    }
+                })
+                if (findQuatity) {
+
+                    size = {
+                        size: textContent,
+                        imgs: findQuatity.imgs
+
+                    }
+                } else {
+                    size = {
+                    }
+                }
+
             }
 
         }
@@ -201,6 +223,7 @@
         const prv = document.querySelectorAll('.containers_container_information_addCart_quatity_prev div')
         const prvClick = document.querySelector('.containers_container_information_addCart_quatity_prev')
         const nextClick = document.querySelector('.containers_container_information_addCart_quatity_next')
+        let quatity = { num: 0 }
         prv.forEach((item) => {
 
             if (Number(numberQuatity.textContent) === 0) {
@@ -214,12 +237,65 @@
             } else {
                 const num = Number(numberQuatity.textContent) - 1
                 numberQuatity.innerHTML = num
+                quatity = { num }
             }
         })
         nextClick.addEventListener('click', () => {
 
             const num = Number(numberQuatity.textContent) + 1
             numberQuatity.innerHTML = num
+            quatity = { num }
+        })
+        const handleAddCart = document.querySelector('.containers_container_information_addCart_button button')
+        handleAddCart.addEventListener('click', () => {
+            const obj = { ...{ title: formatDataProduct.title }, ...color, ...size, ...quatity, ...{ id: paramLocation.get('id') }, ...{ price: Number(formatDataProduct.sale) > 0 ? Number(formatDataProduct.price) - (Number(formatDataProduct.price) * sale) : formatDataProduct.price } }
+            let duplicateArr = arrCart.filter((item, index) => {
+                if (item) {
+                    if (item.id === obj.id) {
+                        if (item.colorEn === obj.colorEn) {
+                            if (item.size === obj.size) {
+
+                                return item
+                            }
+                        } else {
+                            return false
+                        }
+                    }
+                }
+            })
+
+            let findIndexArr = arrCart.findIndex((item, index) => {
+                if (item) {
+                    if (item.color === obj.color) {
+                        if (item.size === obj.size) {
+                            if (item.id === obj.id) {
+                                return item
+                            }
+                        }
+                    }
+                }
+            })
+            if (!Boolean(color) || !Boolean(size)) {
+                alert('chọn đủ size số')
+
+            } else {
+                if (duplicateArr.length > 0) {
+                    arrCart[findIndexArr].num = obj.num
+                } else {
+                    arrCart.push(obj)
+                }
+                if (quatity) {
+                    if (quatity.num > 0) {
+                        localStorage.setItem('dataCart', JSON.stringify(arrCart))
+                        alert('Thêm thành công')
+                        window.location.reload()
+                    } else {
+                        alert('chọn đủ size số')
+                    }
+                }
+
+            }
+
 
         })
     </script>
