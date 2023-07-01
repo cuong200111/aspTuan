@@ -6,12 +6,11 @@ mail varchar(max),
 phone  varchar(max),
 addres  varchar(max)
 )
-
 create table product(
 id int,
 datas varchar(max),
 title varchar(100),
-price int,
+price varchar(max),
 sale int,
 img varchar(max),
 category varchar(100),

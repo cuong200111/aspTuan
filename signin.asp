@@ -1,4 +1,5 @@
-<!-- #include file="./controller/queryuser.asp" -->
+
+<!-- #include file="./controllers/queryuser.asp" -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KaTieu Shop</title>
-    <link rel="stylesheet" href="pages/components/signin/signin.css ">
+    <link rel="stylesheet" href="views/components/signin/signin.css ">
 </head>
 <script>
     const srtArrProduct = "<%=user%>"
@@ -35,7 +36,7 @@
 </style>
 
 <body>
-    <!-- #include file="./pages/signin.asp" -->
+    <!-- #include file="./views/signin.asp" -->
 
 </body>
 

@@ -6,7 +6,7 @@ id = CInt(Request.Form("id"))
 Dim title
 title = Request.Form("title")
 Dim price
-price = CInt(Request.Form("price"))
+price = Request.Form("price")
 Dim sale 
 sale= CInt(Request.Form("sale"))
 Dim img

@@ -160,8 +160,10 @@
                 body: formData
             }).then(item => {
                 if (item.status === 200) {
-                    // window.location.reload()
+                    window.location.reload()
                 }
+            }).catch(err => {
+                console.log(err)
             })
         }
 
