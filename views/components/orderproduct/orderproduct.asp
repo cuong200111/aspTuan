@@ -54,9 +54,9 @@
     </div>
 </div>
 <script>
-  function formatMoney(amount) {
-      return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-   }
+    function formatMoney(amount) {
+        return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     let methodShip = ''
     const checkShip = document.querySelectorAll('.oder_left_between_shipingmethod_check_item')
     checkShip.forEach((item) => {
@@ -180,6 +180,7 @@
                 // const idproduct,account,fullname,addres,imgproduct,colorEn,colorVi,size,quatity,methodshipper
 
                 mapFormatArr.forEach((item) => {
+                    console.log(item)
                     const idproduct = item.id
                     const account = localStorage.getItem('emailUser') ? localStorage.getItem('emailUser') : Emailadd.value
                     const imgproduct = item.imgs
@@ -191,9 +192,11 @@
                     const size = item.size
                     const quatity = item.num
                     const methodshipper = methodShip
+                    const titleProduct = item.title
+                    const priceProduct = item.price
                     fetch(`/controllers/addtoCart.asp`, {
                         method: 'POST',
-                        body: `idproduct=${encodeURIComponent(idproduct)}&account=${encodeURIComponent(account)}&imgproduct=${encodeURIComponent(imgproduct)}&fullname=${encodeURIComponent(fullname)}&addres=${encodeURIComponent(addres)}&phones=${encodeURIComponent(phones)}&colorEn=${encodeURIComponent(colorEn)}&colorVi=${encodeURIComponent(colorVi)}&size=${encodeURIComponent(size)}&quatity=${encodeURIComponent(quatity)}&methodshipper=${encodeURIComponent(methodshipper)}`,
+                        body: `idproduct=${encodeURIComponent(idproduct)}&account=${encodeURIComponent(account)}&imgproduct=${encodeURIComponent(imgproduct)}&fullname=${encodeURIComponent(fullname)}&addres=${encodeURIComponent(addres)}&phones=${encodeURIComponent(phones)}&colorEn=${encodeURIComponent(colorEn)}&colorVi=${encodeURIComponent(colorVi)}&size=${encodeURIComponent(size)}&quatity=${encodeURIComponent(quatity)}&methodshipper=${encodeURIComponent(methodshipper)}&titleProduct=${encodeURIComponent(titleProduct)}&priceProduct=${encodeURIComponent(priceProduct)}`,
                         headers: {
                             'Content-type': 'application/x-www-form-urlencoded'
                         }

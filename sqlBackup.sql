@@ -1,13 +1,13 @@
 create table users (
+mail varchar(200) PRIMARY KEY ,
 names varchar(max),
 nameacc  varchar(max) ,
 pass  varchar(max),
-mail varchar(max),
 phone  varchar(max),
 addres  varchar(max)
 )
 create table product(
-id int,
+id int PRIMARY KEY,
 datas varchar(max),
 title varchar(100),
 price varchar(max),
@@ -17,9 +17,10 @@ category varchar(100),
 createdAt date default CURRENT_TIMESTAMP
 )
 create table libraryproduct (
-ids varchar(max),
+ids int,
 imgs varchar(max),
-colors varchar(max)
+colors varchar(max),
+FOREIGN KEY (ids) REFERENCES product(id)
 )
 create table cartUser (
 idproduct varchar(max),
@@ -41,11 +42,12 @@ create table shippeStatus (
     shipper nvarchar(max),
 statusShip varchar(max)
 )
-select * from libraryproduct
-delete from libraryproduct
-select* from cartUser
-drop table product
-select *from product
+select * from users
+drop table cartUser
+
+select *from libraryproduct
+ALTER TABLE libraryproduct
+
 ADD CONSTRAINT FK_libraryproduct_ids_product_id
 FOREIGN KEY (ids) REFERENCES product(id)
 ON DELETE CASCADE;

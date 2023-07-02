@@ -93,7 +93,7 @@
     if (online) {
         main_header_login.innerHTML = `<div class="main_header_login_cart">
         <div class="main_header_login_cart_noti"></div>
-        </div> <button onclick="signout()">Đăng xuất</button>`
+        </div> <button class="signoutClass" onclick="signout()" style="text-decoration: none;color:white">Đăng xuất</button>`
         if (arrCart.length > 0) {
 
             document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: #5b6167;"></i><div><span>${arrCart.length}</span></div>`
@@ -117,6 +117,10 @@
     const signout = () => {
         if (online) {
             localStorage.setItem('online', '');
+            localStorage.removeItem('fullName')
+            localStorage.removeItem('emailUser')
+            localStorage.removeItem('address')
+            localStorage.removeItem('phoneUser')
             window.location.reload();
             localStorage.setItem('user', '')
         }
@@ -146,7 +150,7 @@
         if (window.innerWidth > 600) {
             if (scrollY > 46) {
                 iconsearch.style = `color: white`
-                main_header_login.querySelectorAll('a').forEach(item=>{
+                main_header_login.querySelectorAll('a').forEach(item => {
                     item.style = `color: black;text-decoration: none`
                 })
                 if (arrCart.length > 0) {
@@ -158,11 +162,15 @@
                 header.classList.add('active')
                 main_header_content.forEach(item => item.classList.add('active'))
                 header.style = 'animation:scrollHeader 0.4s forwards;'
-                button.forEach(item => item.classList.add('active'))
+                button.forEach(item => {
+                    item.style = `color:black`
+                    item.classList.add('active')
+                })
                 main_header.classList.add('active')
             } else {
+
                 iconsearch.style = `color: rgba(0, 0, 0, 0.801)`
-                main_header_login.querySelectorAll('a').forEach(item=>{
+                main_header_login.querySelectorAll('a').forEach(item => {
                     item.style = `color: white;text-decoration: none`
                 })
                 if (arrCart.length > 0) {
@@ -174,7 +182,10 @@
                 header.classList.remove('active')
                 header.style = 'animation:scrollHeader2 0.5s forwards;'
                 main_header_content.forEach(item => item.classList.remove('active'))
-                button.forEach(item => item.classList.remove('active'))
+                button.forEach(item => {
+                    item.style = `color:white`
+                    item.classList.remove('active')
+                })
                 main_header.classList.remove('active')
             }
         }

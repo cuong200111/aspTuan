@@ -9,19 +9,18 @@ conn.Open "Provider=SQLOLEDB;Data Source=LAPTOP-UHRJ0SA1;Initial Catalog=fashion
 If Err.Number <> 0 Then
       Response.Write "failure"
 Else
-    rs.Open "SELECT * FROM product", conn
+    rs.Open "SELECT * FROM cartUser ", conn
        Response.Write (rs.length)
     If Not rs.EOF Then 
-        
       Response.Write "["
         Do While Not rs.EOF
           Dim imgUrl
-          If Len(rs("img")) = 0 Then
+          If Len(rs("imgproduct")) = 0 Then
                  imgUrl = "#"
           Else
-        imgUrl = rs("img")
+        imgUrl = rs("imgproduct")
           End If
-Response.Write "{_id_:_"& rs("id")&"_,_datas_:"& rs("datas")&",_category_:_"& rs("category") &"_,_url_:_"& imgUrl &"_,_title_:_"& rs("title") &"_,_price_:_"& rs("price") &"_,_createdAt_:_"& rs("createdAt") &"_},"
+Response.Write "{_idproduct_:_"& rs("idproduct")&"_,_account_:_"& rs("account")&"_,_fullname_:_"& rs("fullname") &"_,_addres_:_"& rs("addres") &"_,_phones_:_"& rs("phones") &"_,_imgproduct_:_"& imgUrl &"_,_colorEn_:_"& rs("colorEn") &"_,_colorVi_:_"& rs("colorVi") &"_,_size_:_"& rs("size") &"_,_quatity_:_"& rs("quatity") &"_,_methodshipper_:_"& rs("methodshipper") &"_,_priceProduct_:_"& rs("priceProduct") &"_,_titleProduct_:_"& rs("titleProduct") &"_},"
             rs.MoveNext
         Loop
         Response.Write "]"

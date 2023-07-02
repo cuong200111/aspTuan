@@ -1,5 +1,5 @@
 <%
-Function user()
+Function arr()
 Dim conn
 Set conn = Server.CreateObject("ADODB.Connection")
 Set rs =Server.CreateObject("ADODB.Recordset") 
@@ -9,13 +9,13 @@ conn.Open "Provider=SQLOLEDB;Data Source=LAPTOP-UHRJ0SA1;Initial Catalog=fashion
 If Err.Number <> 0 Then
       Response.Write "failure"
 Else
-    rs.Open "SELECT * FROM users", conn
+    rs.Open "SELECT * FROM shippeStatus", conn
        Response.Write (rs.length)
     If Not rs.EOF Then 
         
       Response.Write "["
         Do While Not rs.EOF
-Response.Write "{_names_:_"& rs("names")&"_,_pass_:_"& rs("pass") &"_,_nameacc_:_"& rs("nameacc")&"_,_mail_:_"& rs("mail")&"_,_phone_:_"& rs("phone")&"_,_addres_:_"& rs("addres")&"_},"
+Response.Write "{_product_:_"& rs("product")&"_,_shipper_:_"& rs("shipper")&"_,_statusShip_:_"& rs("statusShip") &"_},"
             rs.MoveNext
         Loop
         Response.Write "]"
