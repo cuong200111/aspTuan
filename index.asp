@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="views/components/banner/banner.css ">
   <link rel="stylesheet" href="views/components/album/albums.css ">
- <link rel="stylesheet" href="views/components/header/header.css ">
+ <link rel="stylesheet" href="views/components/header/headers.css ">
   <link rel="stylesheet" href="views/components/newproduct/newproduct.css ">
   <link rel="stylesheet" href="views/components/store/index.css">
   <link rel="stylesheet" href="views/components/contact/contact.css ">

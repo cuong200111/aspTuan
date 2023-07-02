@@ -103,8 +103,8 @@
     } else {
         main_header_login.innerHTML = ` <div class="main_header_login_cart">
         <div class="main_header_login_cart_noti"></div>
-        </div><button><a style="text-decoration: none;color:black" href="../../signup.asp">Đăng ký</a></button>
-            <button><a style="text-decoration: none;color:black" href="../../signin.asp">Đăng nhập</a></button>`
+        </div><button><a style="text-decoration: none;color:white" href="../../signup.asp">Đăng ký</a></button>
+            <button><a style="text-decoration: none;color:white" href="../../signin.asp">Đăng nhập</a></button>`
         if (arrCart.length > 0) {
 
             document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: #5b6167;"></i><div><span>${arrCart.length}</span></div>`
@@ -145,8 +145,10 @@
     document.addEventListener('scroll', () => {
         if (window.innerWidth > 600) {
             if (scrollY > 46) {
-                iconsearch.style= `color: white`
-           
+                iconsearch.style = `color: white`
+                main_header_login.querySelectorAll('a').forEach(item=>{
+                    item.style = `color: black;text-decoration: none`
+                })
                 if (arrCart.length > 0) {
 
                     document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: white;"></i><div><span>${arrCart.length}</span></div>`
@@ -159,7 +161,10 @@
                 button.forEach(item => item.classList.add('active'))
                 main_header.classList.add('active')
             } else {
-                iconsearch.style= `color: rgba(0, 0, 0, 0.801)`
+                iconsearch.style = `color: rgba(0, 0, 0, 0.801)`
+                main_header_login.querySelectorAll('a').forEach(item=>{
+                    item.style = `color: white;text-decoration: none`
+                })
                 if (arrCart.length > 0) {
 
                     document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: #5b6167;"></i><div><span>${arrCart.length}</span></div>`
@@ -390,7 +395,7 @@
     const navigaSearch = (id) => {
         window.location.href = `./detailproduct.asp?id=${id}`
     }
-    const navigateSearchParam = ()=>{
+    const navigateSearchParam = () => {
         window.location.href = `./search.asp?search=${searchInput.value}`
     }
 </script>
