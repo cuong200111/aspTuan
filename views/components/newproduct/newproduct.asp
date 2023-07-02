@@ -25,8 +25,11 @@
     let htmlnewProduct = ``
     dataNewProduct.forEach((item, index) => {
         htmlnewProduct += `<div class="newproduct_main_imgs_img">
-    <img src="data:image/png;base64,${item.url}"/>
+    <img onclick="navigateNewProduct(${item.id})" src="data:image/png;base64,${item.url}"/>
 </div>`
     })
     document.querySelector('.newproduct_main_imgs').innerHTML = htmlnewProduct
+       const navigateNewProduct = (id) => {
+      window.location.href = `./detailproduct.asp?id=${id}`
+   }
 </script>

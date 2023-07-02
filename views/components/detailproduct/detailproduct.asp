@@ -68,6 +68,9 @@
 
 
     <script>
+      function formatMoney(amount) {
+      return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+   }
         const paramLocation = new URLSearchParams(window.location.search)
         const formatColor = (color) => {
             switch (color) {
@@ -87,7 +90,7 @@
             return item.id === paramLocation.get('id')
 
         })
-        const sale = Number(formatDataProduct.sale) / 100
+        const sale = (Number(formatDataProduct.sale) / 100)
         const idProduct = formatDataProduct.id
         const filterlibrary = dataLibrary.filter(item => {
             if (item.ids === idProduct) {
@@ -137,7 +140,7 @@
 
         document.querySelector('.containers_container_information_size_content').innerHTML = htmlSizez
         document.querySelector('.containers_container_information_title').innerHTML = `<h1>${formatDataProduct.title}</h1><h5>${formatDataProduct.title} <op>|</op> Đã bán 100K</h5>
-                    <span>${formatDataProduct.price}đ <sale class="containers_container_information_title_sale"> ${Number(formatDataProduct.price) * sale}đ </sale> <text
+                    <span>${formatMoney(formatDataProduct.price)}đ <sale class="containers_container_information_title_sale"> ${formatMoney((Number(formatDataProduct.price) * sale).toFixed())}đ </sale> <text
                             class="containers_container_information_title_text">&nbsp;&nbsp;&nbsp;${formatDataProduct.sale}%</text></span>`
         const sliceArr = filterlibrary.slice(0, 10)
         let htmlFirtProduct = ``
@@ -248,7 +251,7 @@
         })
         const handleAddCart = document.querySelector('.containers_container_information_addCart_button button')
         handleAddCart.addEventListener('click', () => {
-            const obj = { ...{ title: formatDataProduct.title }, ...color, ...size, ...quatity, ...{ id: paramLocation.get('id') }, ...{ price: Number(formatDataProduct.sale) > 0 ? Number(formatDataProduct.price) - (Number(formatDataProduct.price) * sale) : formatDataProduct.price } }
+            const obj = { ...{ title: formatDataProduct.title }, ...color, ...size, ...quatity, ...{ id: paramLocation.get('id') }, ...{ price: Number(formatDataProduct.sale) > 0 ? (Number(formatDataProduct.price) - (Number(formatDataProduct.price) * sale)).toFixed(): formatDataProduct.price } }
             let duplicateArr = arrCart.filter((item, index) => {
                 if (item) {
                     if (item.id === obj.id) {

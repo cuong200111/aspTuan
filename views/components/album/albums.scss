@@ -4,12 +4,27 @@ $font1 :'Roboto',
 sans-serif;
 $font2 :"Aclonica",
 sans-serif;
-
+@mixin screen1800 {
+    @media only screen and (max-width:1800px) {
+        @content;
+    }
+}
+@mixin screen1700 {
+    @media only screen and (max-width:1700px) {
+        @content;
+    }
+}
+@mixin screen1500 {
+    @media only screen and (max-width:1500px) {
+        @content;
+    }
+}
 @mixin mobile {
     @media only screen and (max-width:1280px) {
         @content;
     }
 }
+
 
 
 .mainAlbum {
@@ -86,21 +101,27 @@ sans-serif;
         }
 
         &_lists {
-            width: 90%;
+            width: 60%;
             margin: 2% 0;
             display: grid;
             gap: 10px;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px 0;
-        
-            @include mobile {
+            @include screen1800() {
                 grid-template-columns: repeat(3, 1fr);
+                width: 70%;
+            }
+            @include screen1700() {
+                grid-template-columns: repeat(3, 1fr);
+                width: 80%;
+            }
+            @include mobile {
+                grid-template-columns: repeat(2, 1fr);
+                width: 60%;
             }
 
 
             &_list {
-
-
                 &_imgs {
                     &_img {
                         border-top-left-radius: 15px;

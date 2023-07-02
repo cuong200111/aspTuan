@@ -37,6 +37,11 @@
         <div class="bgPopup" style="background-color: rgba(0, 0, 0, 0.11);position: fixed;
         top: 0;left:0;height: 100%;width:100%;z-index: 10;">
         </div>
+        <div class="searchProduct">
+            <input class="searchInput" type="text">
+            <i id="iconsearch" onclick="navigateSearchParam()" class="fa-solid fa-magnifying-glass"></i>
+            <div class="infoSearch"></div>
+        </div>
         <div class="main_header_login">
 
         </div>
@@ -82,6 +87,7 @@
     const arrCart = JSON.parse(localStorage.getItem('dataCart')) ? mapSttCart(JSON.parse(localStorage.getItem('dataCart'))) : []
     const cart_popup = document.querySelector('.cart_popup')
     const main_header_login = document.querySelector('.main_header_login')
+    const iconsearch = document.querySelector('#iconsearch')
     const online = Boolean(localStorage.getItem("online"))
 
     if (online) {
@@ -95,7 +101,7 @@
             document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: #5b6167;"></i>`
         }
     } else {
-        main_header_login.innerHTML = `  <div class="main_header_login_cart">
+        main_header_login.innerHTML = ` <div class="main_header_login_cart">
         <div class="main_header_login_cart_noti"></div>
         </div><button><a style="text-decoration: none;color:black" href="../../signup.asp">Đăng ký</a></button>
             <button><a style="text-decoration: none;color:black" href="../../signin.asp">Đăng nhập</a></button>`
@@ -133,12 +139,14 @@
         cart_popup.classList.remove('active')
     })
     const header = document.querySelector('.main_header')
-    const main_header = document.querySelector('main')
+    const main_header = document.querySelector('.main')
     const main_header_content = document.querySelectorAll('.main_header_content_href')
     const button = document.querySelectorAll('button')
     document.addEventListener('scroll', () => {
         if (window.innerWidth > 600) {
             if (scrollY > 46) {
+                iconsearch.style= `color: white`
+           
                 if (arrCart.length > 0) {
 
                     document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: white;"></i><div><span>${arrCart.length}</span></div>`
@@ -151,6 +159,7 @@
                 button.forEach(item => item.classList.add('active'))
                 main_header.classList.add('active')
             } else {
+                iconsearch.style= `color: rgba(0, 0, 0, 0.801)`
                 if (arrCart.length > 0) {
 
                     document.querySelector('.main_header_login_cart_noti').innerHTML = `<i class="fa-solid fa-cart-shopping" style="color: #5b6167;"></i><div><span>${arrCart.length}</span></div>`
@@ -358,5 +367,30 @@
             }
         }
     }
-
+    const searchInput = document.querySelector('.searchInput')
+    const infoSearch = document.querySelector('.infoSearch')
+    searchInput.addEventListener('input', (e) => {
+        const value = e.target.value
+        if (value.length > 0) {
+            const filterSearch = dataJson.filter((item, index) => {
+                return item.title.toLowerCase().includes(value.toLowerCase())
+            })
+            let htmlSearch = ``
+            filterSearch.forEach((item, index) => {
+                htmlSearch += `<div class="infoSearch_item" onclick="navigaSearch(${item.id})">
+                    <img src="data:image/png;base64,${item.url}" alt=""/>
+                    <div class="infoSearch_item_title">${item.title}</div>
+                    </div>`
+            })
+            infoSearch.innerHTML = htmlSearch
+        } else {
+            infoSearch.innerHTML = ''
+        }
+    })
+    const navigaSearch = (id) => {
+        window.location.href = `./detailproduct.asp?id=${id}`
+    }
+    const navigateSearchParam = ()=>{
+        window.location.href = `./search.asp?search=${searchInput.value}`
+    }
 </script>

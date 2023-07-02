@@ -74,14 +74,17 @@
                     <option value="Yellow">
                         Yellow
                     </option>
-                    <option value="Red">
-                        Red
-                    </option>
-                    <option value="Red">
-                        Red
-                    </option>
                     <option value="Black">
                         Black
+                    </option>
+                      <option value="White">
+                        White
+                    </option>
+                    <option value="Red">
+                        Red
+                    </option>
+                    <option value="Pink">
+                        Pink
                     </option>
                 </select>
 

@@ -10,7 +10,7 @@
   <title>KaTieu Shop</title>
   <link rel="stylesheet" href="views/components/banner/banner.css ">
   <link rel="stylesheet" href="views/components/album/album.css ">
- <link rel="stylesheet" href="views/components/header/headers.css ">
+ <link rel="stylesheet" href="views/components/header/header.css ">
  <link rel="stylesheet" href="views/components/footer/footer.css ">
   <link rel="stylesheet" href="views/components/orderproduct/orderproducts.css ">
     <script src="https://kit.fontawesome.com/c08976f15f.js" crossorigin="anonymous"></script>

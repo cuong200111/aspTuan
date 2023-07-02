@@ -144,23 +144,15 @@
         const sale = document.querySelector('#sale')
         function handleSubmit(e) {
             e.preventDefault();
-            const formData = new URLSearchParams();
-            formData.append("id", document.querySelector('#id').value);
-            formData.append("title", title.value);
-            formData.append("price", price.value);
-            formData.append("sale", sale.value === `` ? 0 : sale.value);
-            formData.append("imgBase64", imgs.value);
-            formData.append("selectCategory", category.value);
-            formData.append("datas", JSON.stringify(dataArr));
             fetch('./components/controller/addproject.asp', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: formData
+                body: `id=${encodeURIComponent(document.querySelector('#id').value)}&title=${encodeURIComponent(title.value)}&price=${encodeURIComponent(price.value)}&sale=${encodeURIComponent(sale.value === `` ? 0 : sale.value)}&imgBase64=${encodeURIComponent(imgs.value)}&selectCategory=${encodeURIComponent(category.value)}&datas=${encodeURIComponent(JSON.stringify(dataArr))}`,
             }).then(item => {
                 if (item.status === 200) {
-                    window.location.reload()
+                    // window.location.reload()
                 }
             }).catch(err => {
                 console.log(err)

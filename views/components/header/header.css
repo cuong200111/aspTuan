@@ -53,6 +53,11 @@
   width: 13%;
   align-items: center;
 }
+@media only screen and (max-width: 1800px) {
+  .main_header_login {
+    display: flex;
+  }
+}
 .main_header_login_cart {
   cursor: pointer;
   position: relative;
@@ -73,6 +78,16 @@
   font-size: 11px;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+}
+@media only screen and (max-width: 1700px) {
+  .main_header_login {
+    width: 15%;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  .main_header_login {
+    width: 20%;
+  }
 }
 .main_header_login button {
   padding: 7px 15px;
@@ -298,4 +313,53 @@ body {
 .bgPopup.active {
   visibility: visible;
   opacity: 1;
-}/*# sourceMappingURL=headers.css.map */
+}
+
+.searchProduct {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+.searchProduct input {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.836);
+  transition: 0.2s;
+}
+.searchProduct input:focus {
+  outline: none;
+  border-radius: 3px;
+}
+.searchProduct i {
+  margin: 0 0 0 3%;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.801);
+  cursor: pointer;
+}
+
+.infoSearch {
+  position: absolute;
+  top: 100%;
+  background-color: white;
+  z-index: 1000;
+}
+.infoSearch_item {
+  width: 100%;
+  display: flex;
+  margin: 2px 0;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.infoSearch_item:hover {
+  background-color: rgba(0, 0, 0, 0.104);
+}
+.infoSearch_item img {
+  width: 80px;
+  margin: 0 3px;
+  border-radius: 3px;
+}
+.infoSearch_item_title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=header.css.map */

@@ -54,6 +54,9 @@
     </div>
 </div>
 <script>
+  function formatMoney(amount) {
+      return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+   }
     let methodShip = ''
     const checkShip = document.querySelectorAll('.oder_left_between_shipingmethod_check_item')
     checkShip.forEach((item) => {
@@ -79,7 +82,7 @@
                         ${item.title} / ${item.size}
                     </h6>
                 </div>
-                <div>${item.price * item.num}đ</div>
+                <div>${formatMoney((item.price * item.num).toFixed())}đ</div>
             </div>
             <div class="oder_right_between">
                 <div>
@@ -87,7 +90,7 @@
                         Tạm tính
                     </h6>
                     <h6>
-                        ${item.price * item.num}₫
+                       ${formatMoney((item.price * item.num).toFixed())}₫
                     </h6>
                 </div>
                 <div>
@@ -221,7 +224,7 @@
                     0₫
                 </h5>
             </div>`
-        document.querySelector('.oder_items_bottom h5').innerHTML = `${totalPrice}đ`
+        document.querySelector('.oder_items_bottom h5').innerHTML = `${formatMoney(totalPrice.toFixed())}đ`
     } else {
         document.querySelector('.oder_items_bottom').innerHTML = `<div>
               Bạn chưa có đơn hàng nào trong giỏ hàng !
