@@ -27,7 +27,7 @@
    const mainAlbum_container_category_button = document.querySelectorAll('.mainAlbum_container_category_button')
    mainAlbum_container_category_button.forEach(item => {
       item.classList.remove("active")
-      const value = item.value === "dresses" ? item.value === "dresses" : false
+      const value = item.value === "jewellery" ? item.value === "jewellery" : false
 
       if (value) {
          item.classList.add("active")
@@ -37,14 +37,15 @@
    let htmlAlbum = ``
 
 
-   const filterData = (value) => {
-      const filterData = dataJson.filter((item, index) => {
+   function filterData(value) {
+      const filterArr = dataJson.filter((item, index) => {
          if (item.category === value) {
             return item
          }
       })
-      return filterData
+      return filterArr
    }
+
    const handleButton = (e) => {
       htmlAlbum = ''
       mainAlbum_container_category_button.forEach(item => {
@@ -56,8 +57,8 @@
       })
       filterData(e.value).slice(0, 6).forEach((item, index) => {
          htmlAlbum += `<div class="mainAlbum_container_lists_list">
-       <div class="mainAlbum_container_lists_list_imgs"><div class="mainAlbum_container_lists_list_imgs_img"> <img src="data:image/png;base64,${item.url}"/></div></div>
-      <div class="mainAlbum_container_lists_list_titles"><div class="mainAlbum_container_lists_list_titles_title"><h1>${item.title}</h1><h1>Giá: ${item.price}</h1></div></div>
+       <div class="mainAlbum_container_lists_list_imgs"><div class="mainAlbum_container_lists_list_imgs_img"> <img onclick="navigateProduct(${item.id})"  src="data:image/png;base64,${item.url}"/></div></div>
+      <div class="mainAlbum_container_lists_list_titles"><div class="mainAlbum_container_lists_list_titles_title"><h1 style="text-wrap:nowrap">${item.title}</h1><h1>Giá: ${formatMoney(item.price)}đ</h1></div></div>
     </div>`
       })
       document.querySelector('.mainAlbum_container_lists').innerHTML = htmlAlbum
@@ -67,11 +68,11 @@
    function formatMoney(amount) {
       return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
    }
-   const arrFilterData = filterData("dresses").length > 0 ? filterData("dresses") : filterData("footwear").length > 0 ? filterData("footwear") : []
+   const arrFilterData = filterData("jewellery").length > 0 ? filterData("jewellery") : filterData("footwear").length > 0 ? filterData("footwear") : []
    arrFilterData.slice(0, 6).forEach((item, index) => {
       htmlAlbum += `<div class="mainAlbum_container_lists_list">
        <div class="mainAlbum_container_lists_list_imgs"><div class="mainAlbum_container_lists_list_imgs_img"> <img onclick="navigateProduct(${item.id})" src="data:image/png;base64,${item.url}"/></div></div>
-      <div class="mainAlbum_container_lists_list_titles"><div class="mainAlbum_container_lists_list_titles_title"><h1>${item.title}</h1><h1>Giá: ${formatMoney(item.price)}đ</h1></div></div>
+      <div class="mainAlbum_container_lists_list_titles"><div class="mainAlbum_container_lists_list_titles_title"><h1 style="text-wrap:nowrap">${item.title}</h1><h1>Giá: ${formatMoney(item.price)}đ</h1></div></div>
     </div>`
    })
    document.querySelector('.mainAlbum_container_lists').innerHTML = htmlAlbum

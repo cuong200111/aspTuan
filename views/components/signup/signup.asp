@@ -18,7 +18,7 @@
         <div class="row justify-content-center" style="margin-top:5%;">
             <div style="display: flex ;justify-content: center; align-items: center; flex-direction: column;"
                 class="col-md-6 border shadow-lg rounded bg-light" style="padding:2%">
-                <h1 class="text-center text-primary">Register</h1>
+                <h1 class="text-center text-primary">Đăng ký</h1>
                 <form>
                     <small>
 
@@ -48,7 +48,8 @@
                     <div class="row form-group" style="padding: 10px;">
                         <div class="col">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                required>
                         </div>
                     </div>
 
@@ -68,10 +69,11 @@
                     </div>
 
                     <div class="row justify-content-center" style="padding: 10px;">
-                        <button type="submit" class="btn btn-primary col" name="register" onclick="clicks(event)">Đăng
+                        <button type="submit" id="signupAction" class="btn btn-primary col" onclick="signupFunc(event)"
+                            name="register">Đăng
                             ký</button>
                     </div>
-                    <p align="center">Bạn đã có tài khoản? <a href="" class="text-primary"
+                    <p align="center">Bạn đã có tài khoản? <a href="./signin.asp" class="text-primary"
                             style="font-weight:600; text-decoration:none;">Đăng nhập</a></p>
                 </form>
             </div>
@@ -95,8 +97,9 @@
                 $(this).remove();
             });
         }, 1000);
+        const signupAction = document.querySelector('#signupAction')
 
-        function clicks(e) {
+        function signupFunc(e) {
             e.preventDefault()
             const arr = dataJson
             const filters = arr.filter(item => {
@@ -122,13 +125,16 @@
                     method: "post", body: data, headers: { "Content-Type": "application/x-www-form-urlencoded" }
                 }).then(item => {
                     if (item.status === 200) {
+                        alert('Đăng ký thành công')
                         window.location.reload()
                     }
                 })
             } else {
-
+                alert("Tài khoản đã tồn tại ")
             }
         }
+
+
     </script>
 
 </body>

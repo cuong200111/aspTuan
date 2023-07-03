@@ -20,7 +20,6 @@
 </head>
 <script>
   const srtArrProduct = `<%=arr%>`
-
   const tex = document.createElement('tex')
   tex.innerHTML = srtArrProduct
   const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML

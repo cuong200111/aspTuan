@@ -392,7 +392,7 @@
                 return item.title.toLowerCase().includes(value.toLowerCase())
             })
             let htmlSearch = ``
-            filterSearch.forEach((item, index) => {
+            filterSearch.slice(0,6).forEach((item, index) => {
                 htmlSearch += `<div class="infoSearch_item" onclick="navigaSearch(${item.id})">
                     <img src="data:image/png;base64,${item.url}" alt=""/>
                     <div class="infoSearch_item_title">${item.title}</div>

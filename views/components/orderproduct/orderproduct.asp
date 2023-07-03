@@ -6,8 +6,7 @@
             Thông tin của bạn tuyệt đối bảo mật
         </div>
         <div class="oder_left_top_description">
-            <div>Thông tin giao hàng</div>
-            <div>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></div>
+            
         </div>
         <div class="oder_left_between">
             <div class="oder_left_between_fullname">
@@ -233,4 +232,15 @@
               Bạn chưa có đơn hàng nào trong giỏ hàng !
             </div>`
     }
+
+
+ const oder = document.querySelector(".oder_left_top_description")
+
+if(Boolean(localStorage.getItem("online"))){
+oder.innerHTML = `<div>Thông tin giao hàng</div>`
+}else{
+   
+oder.innerHTML = `<div>Thông tin giao hàng</div> 
+<div>Bạn đã có tài khoản? <a href="./signin.asp">Đăng nhập</a></div>`
+}
 </script>

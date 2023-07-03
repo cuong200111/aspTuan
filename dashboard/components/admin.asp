@@ -12,22 +12,22 @@
 <body>
     <form>
         <div>
-            <input type="hidden" name="id" id="id" type="text" required />
+            <input type="hidden" name="id" id="id" type="text" required value="1" />
         </div>
         <div>
-            <label for="id">title:</label>
+            <label for="id">Tên Sản Phẩm:</label>
             <input name="title" id="title" type="text" required />
         </div>
 
-        <div> <label for="id">price:</label>
+        <div> <label for="id">Giá Tiền:</label>
             <input name="price" id="price" type="text" required />
         </div>
-        <div>
+        <div><label for="id">Giảm Giá</label>
             <input type="number" id="sale" name="sale" min="0" max="100">
         </div>
 
         <!-- #include file="./optionCategory.asp" -->
-        <div> <label for="imgFile">Image file:</label>
+        <div> <label for="imgFile">Ảnh :</label>
             <input name="imgFile" onchange="changeImg(this)" id="imgFile" type="file" />
         </div>
         <input name="size[]" value="S" disabled> <br>
@@ -67,7 +67,7 @@
             <input type="text" name="color[]" class="XL" aria-level="Pink" value="" placeholder="Pink">
         </div>
         <div> <input type="hidden" name="imgBase64" id="imgBase64">
-            <button type="submit" onclick="handleSubmit(event)">Submit</button>
+            <button type="submit" onclick="handleSubmit(event)">Xác Nhận thêm sản phẩm</button>
         </div>
 
     </form>
@@ -82,7 +82,10 @@
         tex.innerHTML = srtArrProduct
         const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
         const dataJson = JSON.parse(text.replaceAll('_', '"').slice(0, text.lastIndexOf(',')) + "]")
-        document.querySelector('#id').value = dataJson.length + 1
+
+        while (dataJson.find(item => String(item.id) === String(document.querySelector('#id').value))) {
+            document.querySelector('#id').value = Number(document.querySelector('#id').value) + 1
+        }
         const changeImg = (e) => {
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -152,7 +155,7 @@
                 body: `id=${encodeURIComponent(document.querySelector('#id').value)}&title=${encodeURIComponent(title.value)}&price=${encodeURIComponent(price.value)}&sale=${encodeURIComponent(sale.value === `` ? 0 : sale.value)}&imgBase64=${encodeURIComponent(imgs.value)}&selectCategory=${encodeURIComponent(category.value)}&datas=${encodeURIComponent(JSON.stringify(dataArr))}`,
             }).then(item => {
                 if (item.status === 200) {
-                    // window.location.reload()
+                    window.location.reload()
                 }
             }).catch(err => {
                 console.log(err)

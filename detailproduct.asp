@@ -14,9 +14,11 @@
   <link rel="stylesheet" href="views/components/footer/footer.css ">
     <script src="https://kit.fontawesome.com/c08976f15f.js" crossorigin="anonymous"></script>
 </head>
+
+
+<body>
 <script>
   const srtArrProduct = `<%=arr%>`
-
   const tex = document.createElement('tex')
   tex.innerHTML = srtArrProduct
   const text = tex.innerHTML === 'failure' ? "[]" : tex.innerHTML
@@ -30,8 +32,6 @@
   const text2 = tex2.innerHTML === 'failure' ? "[]" : tex2.innerHTML
   const dataLibrary = JSON.parse(text2.replaceAll('_', '"').slice(0, text2.lastIndexOf(',')) + "]")
 </script>
-
-<body>
   <!-- #include file="./views/detailproduct.asp" -->
 
 

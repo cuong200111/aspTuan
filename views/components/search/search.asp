@@ -26,7 +26,7 @@
     filterData.forEach((item, index) => {
         html += `<div class='productpage_data_main_item_s style=''>
     <img src='data:image/png;base64,${item.url}' />
-    <div class='productpage_data_main_item_s_description'>
+    <div class='productpage_data_main_item_s_description'style="text-wrap:nowrap">
        ${item.title}
     </div>
     <div class='productpage_data_main_item_s_price'>
@@ -42,5 +42,4 @@
     const addCart = (id) => {
         window.location.href = `detailproduct.asp?id=${id}`
     }
-
 </script>
